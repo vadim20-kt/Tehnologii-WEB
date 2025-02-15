@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coșul meu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        nav a:hover {
+            color: #28a745;
+        }
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #cart-items {
+            margin-bottom: 20px;
+        }
+        .cart-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .cart-item h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        .cart-item p {
+            margin: 5px 0;
+        }
+        .cart-item button {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cart-item button:hover {
+            background-color: #cc0000;
+        }
+        #cart-total {
+            font-weight: bold;
+            color: #28a745;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+
+
+
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Coșul meu</h1>
+        <p>Verifică și finalizează comanda.</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Acasă</a>
+        <a href="haine.html">Haine</a>
+        <a href="incaltaminte.html">Încălțăminte</a>
+        <a href="accesorii.html">Accesorii</a>
+    </nav>
+
+    <div class="container">
+        <div id="cart-items">
+            <!-- Aici vor fi afișate produsele din coș -->
+        </div>
+        <p>Total: <span id="cart-total">0</span> Lei</p>
+        <button onclick="finalizeazaComanda()">Finalizează Comanda</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Magazin de Haine Online. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        // Funcție pentru încărcarea produselor din coș
+        function incarcaCos() {
+            const cos = JSON.parse(localStorage.getItem('cos')) || [];
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            let total = 0;
+
+            // Golește conținutul anterior
+            cartItems.innerHTML = '';
+
+            // Adaugă fiecare produs în coș
+            cos.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div>
+                        <h3>${item.nume}</h3>
+                        <p>Preț unitar: ${item.pret} Lei</p>
+                        <p>Cantitate: ${item.cantitate}</p>
+                        <p>Total: ${item.pret * item.cantitate} Lei</p>
+                    </div>
+                    <button onclick="stergeDinCos(${index})">Șterge</button>
+                `;
+                cartItems.appendChild(div);
+                total += item.pret * item.cantitate;
+            });
+
+            // Actualizează totalul
+            cartTotal.textContent = total.toFixed(2); // Afișează totalul cu 2 zecimale
+        }
+
+        // Funcție pentru ștergerea unui produs din coș
+        function stergeDinCos(index) {
+            const cos = JSON.parse(localStorage.getItem('cos')) || [];
+            cos.splice(index, 1); // Șterge produsul la indexul specificat
+            localStorage.setItem('cos', JSON.stringify(cos)); // Actualizează localStorage
+            incarcaCos(); // Reîncarcă coșul
+        }
+
+        // Funcție pentru finalizarea comenzii
+        function finalizeazaComanda() {
+            const cos = JSON.parse(localStorage.getItem('cos')) || [];
+            if (cos.length === 0) {
+                alert('Coșul tău este gol!');
+            } else {
+                alert('Comanda a fost finalizată cu succes!');
+                localStorage.removeItem('cos'); // Golește coșul
+                incarcaCos(); // Reîncarcă coșul (acum gol)
+            }
+        }
+
+        // Încarcă coșul la deschiderea paginii
+        document.addEventListener('DOMContentLoaded', incarcaCos);
+    </script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haine</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        nav a:hover {
+            color: #28a745;
+        }
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .category-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(25% - 40px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+        .category-card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        .category-card h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #333;
+        }
+        .product-grid {
+            display: none;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(25% - 40px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .product h3 {
+            font-size: 1.5rem;
+            margin: 15px 0 10px;
+            color: #333;
+        }
+        .product .price {
+            font-size: 1.2rem;
+            color: #28a745;
+            margin: 10px 0;
+        }
+
+    .product select, .product input{
+    width: 60%; 
+    padding: 12px;
+    margin: 10px auto;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+    .product button {
+    background-color: #ff6600; 
+    color: #fff;
+    border: 2px solid #fff; 
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 1.2rem; 
+    font-weight: bold;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+.product button:hover {
+    background-color: #e65c00; 
+}
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        @media (max-width: 768px) {
+            .category-card, .product {
+                width: calc(50% - 40px);
+            }
+        }
+        @media (max-width: 480px) {
+            .category-card, .product {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Haine</h1>
+        <p>Cele mai noi tendințe în haine.</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Acasă</a>
+        <a href="incaltaminte.html">Încălțăminte</a>
+        <a href="accesorii.html">Accesorii</a>
+        <a href="cosul-meu.html">Coșul meu</a>
+    </nav>
+
+    <div class="container">
+        <!-- Lista de categorii -->
+        <div class="category-list">
+            <div class="category-card" onclick="afiseazaProduse('tricouri')">
+                <h2>Tricouri</h2>
+            </div>
+            <div class="category-card" onclick="afiseazaProduse('blugi')">
+                <h2>Blugi</h2>
+            </div>
+            <div class="category-card" onclick="afiseazaProduse('geci-jachete')">
+                <h2>Geci și Jachete</h2>
+            </div>
+            <div class="category-card" onclick="afiseazaProduse('paltoane')">
+                <h2>Paltoane</h2>
+            </div>
+        </div>
+
+        <!-- Produsele din categorie -->
+        <div id="tricouri" class="product-grid">
+            <div class="product">
+                <img src="imagini/Categorie Tricou Alb Barbat-771x1000.png" alt="Tricou Alb">
+                <h3>Tricou Alb</h3>
+                <p class="price">300 Lei</p>
+                <select id="marime-tricou-alb">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                </select>
+                <input type="number" id="cantitate-tricou-alb" min="1" value="1" placeholder="Cantitate">
+                <button onclick="adaugaInCos('Tricou Alb', 300, 'marime-tricou-alb', 'cantitate-tricou-alb')">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="imagini/800x800_VBTSBAGEP42A15999-01.jpg" alt="Tricou Negru">
+                <h3>Tricou Negru</h3>
+                <p class="price">350 Lei</p>
+                <select id="marime-tricou-negru">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="2XL">2XL</option>
+                </select>
+                <input type="number" id="cantitate-tricou-negru" min="1" value="1" placeholder="Cantitate">
+                <button onclick="adaugaInCos('Tricou Negru', 350, 'marime-tricou-negru', 'cantitate-tricou-negru')">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="imagini/Без названия.jpg" alt="Tricou Roșu">
+                <h3>Tricou Roșu</h3>
+                <p class="price">320 Lei</p>
+                <select id="marime-tricou-rosu">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="2XL">2XL</option>
+                </select>
+                <input type="number" id="cantitate-tricou-rosu" min="1" value="1" placeholder="Cantitate">
+                <button onclick="adaugaInCos('Tricou Roșu', 320, 'marime-tricou-rosu', 'cantitate-tricou-rosu')">Adaugă în Coș</button>
+            </div>
+        </div>
+
+        <!-- Categoria Blugi -->
+<div id="blugi" class="product-grid">
+    <div class="product">
+        <img src="imagini/1690-blugi-barbati-online-soul-republic-c_lqno-vr.jpg" alt="Blugi Albaștri">
+        <h3>Blugi Albaștri</h3>
+        <p class="price">400 Lei</p>
+        <select id="marime-blugi-albastri">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-blugi-albastri" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Blugi Albaștri', 400, 'marime-blugi-albastri', 'cantitate-blugi-albastri')">Adaugă în Coș</button>
+    </div>
+    <div class="product">
+        <img src="imagini/res_b9eb54c49f1a57f0a113a80f40d38bf5.jpg" alt="Blugi Negri">
+        <h3>Blugi Negri</h3>
+        <p class="price">450 Lei</p>
+        <select id="marime-blugi-negri">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-blugi-negri" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Blugi Negri', 450, 'marime-blugi-negri', 'cantitate-blugi-negri')">Adaugă în Coș</button>
+    </div>
+    <div class="product">
+        <img src="imagini/rum_pl_Blugi-gri-slim-fit-Bolf-KX759-C-89448_6.jpg" alt="Blugi Gri">
+        <h3>Blugi Gri</h3>
+        <p class="price">420 Lei</p>
+        <select id="marime-blugi-gri">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-blugi-gri" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Blugi Gri', 420, 'marime-blugi-gri', 'cantitate-blugi-gri')">Adaugă în Coș</button>
+    </div>
+</div>
+
+<!-- Categoria Geci și Jachete -->
+<div id="geci-jachete" class="product-grid">
+    <div class="product">
+        <img src="imagini/111111111111zsw5.jpg" alt="Geacă de Primăvară">
+        <h3>Geacă de Primăvară</h3>
+        <p class="price">800 Lei</p>
+        <select id="marime-geaca-primavara">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-geaca-primavara" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Geacă de Primăvară', 800, 'marime-geaca-primavara', 'cantitate-geaca-primavara')">Adaugă în Coș</button>
+    </div>
+    <div class="product">
+        <img src="imagini/e71214ae-bcc3-4d8c-963c-9870c57df15b.jpg" alt="Jachetă Vânt">
+        <h3>Jachetă Vânt</h3>
+        <p class="price">700 Lei</p>
+        <select id="marime-jacheta-vant">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-jacheta-vant" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Jachetă Vânt', 700, 'marime-jacheta-vant', 'cantitate-jacheta-vant')">Adaugă în Coș</button>
+    </div>
+    <div class="product">
+        <img src="imagini/994820alaska-man-navy.webp" alt="Geacă de Iarnă">
+        <h3>Geacă de Iarnă</h3>
+        <p class="price">900 Lei</p>
+        <select id="marime-geaca-iarna">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-geaca-iarna" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Geacă de Iarnă', 900, 'marime-geaca-iarna', 'cantitate-geaca-iarna')">Adaugă în Coș</button>
+    </div>
+</div>
+
+<!-- Categoria Paltoane -->
+<div id="paltoane" class="product-grid">
+    <div class="product">
+        <img src="imagini/Без названия (1).jpg" alt="Palton Negru">
+        <h3>Palton Negru</h3>
+        <p class="price">1200 Lei</p>
+        <select id="marime-palton-negru">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-palton-negru" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Palton Negru', 1200, 'marime-palton-negru', 'cantitate-palton-negru')">Adaugă în Coș</button>
+    </div>
+    <div class="product">
+        <img src="imagini/17-300x400.png" alt="Palton Bej">
+        <h3>Palton Bej</h3>
+        <p class="price">1300 Lei</p>
+        <select id="marime-palton-bej">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-palton-bej" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Palton Bej', 1300, 'marime-palton-bej', 'cantitate-palton-bej')">Adaugă în Coș</button>
+    </div>
+    <div class="product">
+        <img src="imagini/Дизайн-без-названия-1-300x400.jpg" alt="Palton Gri">
+        <h3>Palton Gri</h3>
+        <p class="price">1250 Lei</p>
+        <select id="marime-palton-gri">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="2XL">2XL</option>
+        </select>
+        <input type="number" id="cantitate-palton-gri" min="1" value="1" placeholder="Cantitate">
+        <button onclick="adaugaInCos('Palton Gri', 1250, 'marime-palton-gri', 'cantitate-palton-gri')">Adaugă în Coș</button>
+    </div>
+</div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Magazin de Haine Online. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        // Funcție pentru afișarea produselor din categoria selectată
+        function afiseazaProduse(categorie) {
+            // Ascunde toate gridurile de produse
+            document.querySelectorAll('.product-grid').forEach(grid => {
+                grid.style.display = 'none';
+            });
+
+            // Afișează gridul de produse pentru categoria selectată
+            document.getElementById(categorie).style.display = 'flex';
+        }
+
+        // Funcție pentru adăugarea în coș
+        function adaugaInCos(nume, pret, marimeId, cantitateId) {
+            const marime = document.getElementById(marimeId).value;
+            const cantitate = document.getElementById(cantitateId).value;
+
+            if (isNaN(cantitate) || cantitate < 1) {
+                alert("Cantitatea trebuie să fie un număr valid și mai mare decât 0.");
+                return;
+            }
+
+            const produs = {
+                nume: nume,
+                pret: parseFloat(pret), // Asigură-te că prețul este un număr
+                marime: marime,
+                cantitate: parseInt(cantitate) // Asigură-te că cantitatea este un număr
+            };
+
+            // Obține coșul existent din localStorage sau creează unul nou
+            let cos = JSON.parse(localStorage.getItem('cos')) || [];
+            cos.push(produs); // Adaugă produsul în coș
+            localStorage.setItem('cos', JSON.stringify(cos)); // Salvează coșul în localStorage
+
+            alert(`Produsul "${nume}" (Mărime: ${marime}, Cantitate: ${cantitate}) a fost adăugat în coș pentru ${produs.pret * produs.cantitate} Lei.`);
+        }
+
+        // La încărcarea paginii, ascunde toate gridurile de produse
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.product-grid').forEach(grid => {
+                grid.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

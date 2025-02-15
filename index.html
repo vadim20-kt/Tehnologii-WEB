@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazin de Haine Online</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 15px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        nav a:hover {
+            color: #28a745;
+        }
+        .banner {
+            background-image: url('imagini/f64fda23-ea83-4b03-b049-8d2e13caa528.webp'); /* Adaugă o imagine de banner */
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .banner h2 {
+            font-size: 2.5rem;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-us {
+            background-color: #e2fcff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .about-us h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .about-us p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .contact {
+            margin-bottom: 40px;
+        }
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .contact p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .contact-card {
+            background-color: #e2fcff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1 1 calc(33.333% - 40px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .contact-card i {
+            font-size: 2rem;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+        .contact-card p {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+        .contact-card a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #199948;
+            font-size: 1.5rem;
+        }
+        .social-links a:hover {
+            color: #28a745;
+        }
+    </style>
+    <!-- Font Awesome pentru iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>Magazin de Haine Online</h1>
+        <p>Descoperă cele mai noi tendințe în modă!</p>
+    </header>
+
+    <nav>
+        <a href="haine.html">Haine</a>
+        <a href="incaltaminte.html">Încălțăminte</a>
+        <a href="accesorii.html">Accesorii</a>
+        <a href="cosul-meu.html">Coșul meu</a>
+    </nav>
+
+    <div class="banner">
+        <h2>Fashion pentru fiecare stil!</h2>
+    </div>
+
+    <div class="container">
+        <section class="about-us">
+            <h2>Despre Noi</h2>
+            <p>
+                Bun venit la <strong>Magazin de Haine Online</strong>! Suntem dedicați să aducem cele mai bune produse de modă direct la tine acasă. 
+                Cu o gamă largă de haine, încălțăminte și accesorii, ne propunem să satisfacem toate nevoile tale vestimentare. 
+                Indiferent de stilul tău, avem ceva special pentru tine!
+            </p>
+        </section>
+
+        <section class="contact">
+            <h2>Contacte</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Telefon</h3>
+                    <p><a href="tel:+40712345678">+373 682 345 678</a></p>
+                    <p>Luni - Vineri: 09:00 - 18:00</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:contact@magazinhaine.ro">contact@magazinhaine.md</a></p>
+                    <p>Răspundem în maxim 24 de ore.</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Adresă</h3>
+                    <p>Strada Studenților, Nr. 1</p>
+                    <p>Chișinău, Moldova</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <h3>Urmărește-ne pe:</h3>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Magazin de Haine Online. Toate drepturile rezervate.</p>
+    </footer>
+
+</body>
+</html>
