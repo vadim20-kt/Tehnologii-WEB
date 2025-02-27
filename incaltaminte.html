@@ -4,155 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Încălțăminte</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 40px 0;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-        }
-        header p {
-            font-size: 1.2rem;
-            margin: 10px 0 0;
-        }
-        nav {
-            background-color: #444;
-            padding: 15px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        nav a:hover {
-            color: #28a745;
-        }
-        .container {
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .category-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .category-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            width: calc(25% - 40px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            cursor: pointer;
-        }
-        .category-card:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
-        }
-        .category-card h2 {
-            font-size: 1.5rem;
-            margin: 0;
-            color: #333;
-        }
-        .product-grid {
-            display: none;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .product {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            width: calc(25% - 40px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        .product h3 {
-            font-size: 1.5rem;
-            margin: 15px 0 10px;
-            color: #333;
-        }
-        .product .price {
-            font-size: 1.2rem;
-            color: #28a745;
-            margin: 10px 0;
-        }
-        .product .old-price {
-            font-size: 1rem;
-            color: #888;
-            text-decoration: line-through;
-        }
-        .product select, .product input {
-            width: 60%; 
-            padding: 12px;
-            margin: 10px auto;
-            border: 2px solid #28a745;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            text-align: center;
-        }
-        .product button {
-            background-color: #ff6600; 
-            color: #fff;
-            border: 2px solid #fff; 
-            padding: 12px 25px;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 1.2rem; 
-            font-weight: bold;
-            margin-top: 10px;
-            width: 100%;
-            transition: background-color 0.3s ease;
-        }
-        .product button:hover {
-            background-color: #e65c00; 
-        }
-        
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
-        }
-        footer p {
-            margin: 10px 0;
-        }
-        @media (max-width: 768px) {
-            .category-card, .product {
-                width: calc(50% - 40px);
-            }
-        }
-        @media (max-width: 480px) {
-            .category-card, .product {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="folder cu css/incaltaminte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -161,11 +14,22 @@
         <p>Cele mai noi tendințe în încălțăminte.</p>
     </header>
 
+    <!-- Bara de navigare -->
     <nav>
-        <a href="index.html">Acasă</a>
-        <a href="haine.html">Haine</a>
-        <a href="accesorii.html">Accesorii</a>
-        <a href="cosul-meu.html">Coșul meu</a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i> <!-- Iconița meniului hamburger -->
+        </div>
+        <div class="nav-right">
+            <a href="cosul-meu.html" class="nav-icon">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="badge">0</span> <!-- Badge pentru numărul de produse -->
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="haine.html">Haine</a></li>
+            <li><a href="accesorii.html">Accesorii</a></li>
+        </ul>
     </nav>
 
     <div class="container">
@@ -226,8 +90,10 @@
                 <input type="number" id="cantitate-adidasi-sport" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Bampuri', 800, 'marime-adidasi-sport', 'cantitate-adidasi-sport')">Adaugă în Coș</button>
             </div>
+            <!-- Alte produse sport ... -->
         </div>
 
+        <!-- Categoria Casual -->
         <div id="casual" class="product-grid">
             <div class="product">
                 <img src="imagini/0001262_ghete-barbati-piele-naturala-900-blue_465.jpeg" alt="Bocani">
@@ -268,8 +134,10 @@
                 <input type="number" id="cantitate-pantofi-casual" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Ghete', 700, 'marime-pantofi-casual', 'cantitate-pantofi-casual')">Adaugă în Coș</button>
             </div>
+            <!-- Alte produse casual ... -->
         </div>
 
+        <!-- Categoria Elegantă -->
         <div id="eleganta" class="product-grid">
             <div class="product">
                 <img src="imagini/27-600x800.webp" alt="Pantofi">
@@ -293,6 +161,7 @@
             </div>
         </div>
 
+        <!-- Categoria Sandale -->
         <div id="sandale" class="product-grid">
             <div class="product">
                 <img src="imagini/SANDALEBARBATIMELS95017NEGRE_D.webp" alt="Sandale">
@@ -317,52 +186,9 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Magazin de Haine Online. Toate drepturile rezervate.</p>
+        <p>© 2025 Magazin de Haine Online. Toate drepturile rezervate.</p>
     </footer>
 
-    <script>
-        // Funcție pentru afișarea produselor din categoria selectată
-        function afiseazaProduse(categorie) {
-            // Ascunde toate gridurile de produse
-            document.querySelectorAll('.product-grid').forEach(grid => {
-                grid.style.display = 'none';
-            });
-
-            // Afișează gridul de produse pentru categoria selectată
-            document.getElementById(categorie).style.display = 'flex';
-        }
-
-        // Funcție pentru adăugarea în coș
-        function adaugaInCos(nume, pret, marimeId, cantitateId) {
-            const marime = document.getElementById(marimeId).value;
-            const cantitate = document.getElementById(cantitateId).value;
-
-            if (isNaN(cantitate) || cantitate < 1) {
-                alert("Cantitatea trebuie să fie un număr valid și mai mare decât 0.");
-                return;
-            }
-
-            const produs = {
-                nume: nume,
-                pret: parseFloat(pret), // Asigură-te că prețul este un număr
-                marime: marime,
-                cantitate: parseInt(cantitate) // Asigură-te că cantitatea este un număr
-            };
-
-            // Obține coșul existent din localStorage sau creează unul nou
-            let cos = JSON.parse(localStorage.getItem('cos')) || [];
-            cos.push(produs); // Adaugă produsul în coș
-            localStorage.setItem('cos', JSON.stringify(cos)); // Salvează coșul în localStorage
-
-            alert(`Produsul "${nume}" (Mărime: ${marime}, Cantitate: ${cantitate}) a fost adăugat în coș pentru ${produs.pret * produs.cantitate} MDL.`);
-        }
-
-        // La încărcarea paginii, ascunde toate gridurile de produse
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.product-grid').forEach(grid => {
-                grid.style.display = 'none';
-            });
-        });
-    </script>
+    <script src="foldere cu js/incaltaminte.js"></script>
 </body>
 </html>

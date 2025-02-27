@@ -1,0 +1,291 @@
+/* Stiluri generale pentru corpul paginii */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #333;
+ 
+}
+
+/* Stiluri pentru header */
+header {
+    background-color: #5a0404;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 10px 0 0;
+}
+
+/* Stiluri pentru bara de navigare */
+nav {
+    background-color: #000000;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Stiluri pentru meniul hamburger */
+.menu-toggle {
+    display: block;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+/* Stiluri pentru iconițele din dreapta (coș și favorite) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.nav-icon {
+    color: #fff;
+    margin-left: 20px;
+    position: relative;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.badge {
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 0.7rem; 
+    position: absolute;
+    top: -8px; 
+    right: -12px; 
+}
+
+/* Stiluri pentru link-urile de navigare ascunse */
+.nav-links {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #000000;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+.nav-links li {
+    margin: 10px 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #28a745;
+}
+
+/* Stiluri pentru banner */
+.banner {
+    background-color: #532e2e;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.banner-text {
+    font-size: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+    z-index: 2;
+    animation: fadeIn 2s ease-in-out; /* Animatie pentru text */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.banner-image {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Stiluri pentru container-ul principal */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    clear: both;
+}
+
+/* Stiluri pentru secțiunea Despre Noi */
+.about-us {
+    background-color: #e2fcff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.about-us p {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+/* Stiluri pentru secțiunea Contact */
+.contact {
+    margin-bottom: 30px;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #000;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Stiluri pentru cardurile de contact */
+.contact-card {
+    background-color: #e2fcff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1 1 calc(33.333% - 40px);
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card i {
+    font-size: 2rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #000;
+}
+
+.contact-card p {
+    font-size: 1rem;
+    margin: 5px 0;
+    color: #000;
+}
+
+.contact-card a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+/* Stiluri pentru footer */
+footer {
+    background-color: #000000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #28a745;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Stiluri pentru link-urile sociale */
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links h3 {
+    color: #000; 
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #28a745; 
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block; 
+}
+
+.social-links a:hover {
+    color: #218838; 
+    transform: translateY(-5px) scale(1.2); 
+}
