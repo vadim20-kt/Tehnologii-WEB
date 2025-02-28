@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haine</title>
-    <link rel="stylesheet" href="folder cu css/haine.css">
+    <link rel="stylesheet" href="folder_cu _css/haine.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -14,10 +14,10 @@
         <p>Cele mai noi tendințe în haine.</p>
     </header>
 
-    <!-- Bara de navigare -->
+    
     <nav>
         <div class="menu-toggle">
-            <i class="fas fa-bars"></i> <!-- Iconița meniului hamburger -->
+            <i class="fas fa-bars"></i> 
         </div>
         <div class="nav-right">
             <a href="cosul-meu.html" class="nav-icon"><i class="fas fa-shopping-bag"></i><span class="badge">0</span></a> <!-- Iconița coșului cu link -->
@@ -31,7 +31,7 @@
     </nav>
 
     <div class="container">
-        <!-- Lista de categorii -->
+        
         <div class="category-list">
             <div class="category-card" onclick="afiseazaProduse('tricouri')">
                 <h2>Tricouri</h2>
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <!-- Produsele din categorie -->
+       
         <div id="tricouri" class="product-grid">
             <div class="product">
                 <img src="imagini/Categorie Tricou Alb Barbat-771x1000.png" alt="Tricou Alb">
@@ -57,6 +57,8 @@
                     <option value="S">S</option>
                     <option value="M">M</option>
                     <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="2XL">2XL</option>
                 </select>
                 <input type="number" id="cantitate-tricou-alb" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Tricou Alb', 300, 'marime-tricou-alb', 'cantitate-tricou-alb')">Adaugă în Coș</button>
@@ -89,10 +91,10 @@
                 <input type="number" id="cantitate-tricou-rosu" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Tricou Roșu', 320, 'marime-tricou-rosu', 'cantitate-tricou-rosu')">Adaugă în Coș</button>
             </div>
-            <!-- Alte produse tricouri... -->
+           
         </div>
 
-        <!-- Categoria Blugi -->
+      
         <div id="blugi" class="product-grid">
             <div class="product">
                 <img src="imagini/1690-blugi-barbati-online-soul-republic-c_lqno-vr.jpg" alt="Blugi Albaștri">
@@ -136,10 +138,10 @@
                 <input type="number" id="cantitate-blugi-gri" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Blugi Gri', 420, 'marime-blugi-gri', 'cantitate-blugi-gri')">Adaugă în Coș</button>
             </div>
-            <!-- Alte produse blugi... -->
+            
         </div>
 
-        <!-- Categoria Geci și Jachete -->
+       
         <div id="geci-jachete" class="product-grid">
             <div class="product">
                 <img src="imagini/111111111111zsw5.jpg" alt="Geacă de Primăvară">
@@ -183,10 +185,10 @@
                 <input type="number" id="cantitate-geaca-iarna" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Geacă de Iarnă', 900, 'marime-geaca-iarna', 'cantitate-geaca-iarna')">Adaugă în Coș</button>
             </div>
-            <!-- Alte produse geci și jachete... -->
+           
         </div>
 
-        <!-- Categoria Paltoane -->
+       
         <div id="paltoane" class="product-grid">
             <div class="product">
                 <img src="imagini/Без названия (1).jpg" alt="Palton Negru">
@@ -230,7 +232,7 @@
                 <input type="number" id="cantitate-palton-gri" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Palton Gri', 1250, 'marime-palton-gri', 'cantitate-palton-gri')">Adaugă în Coș</button>
             </div>
-            <!-- Alte produse paltoane... -->
+            
         </div>
     </div>
 
@@ -238,6 +240,6 @@
         <p>© 2025 Magazin de Haine Online. Toate drepturile rezervate.</p>
     </footer>
 
-    <script src="foldere cu js/haine.js"></script>
+    <script src="folder-cu-js/haine.js"></script>
 </body>
 </html>

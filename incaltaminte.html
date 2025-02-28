@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Încălțăminte</title>
-    <link rel="stylesheet" href="folder cu css/incaltaminte.css">
+    <link rel="stylesheet" href="folder_cu _css/incaltaminte.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -14,15 +14,15 @@
         <p>Cele mai noi tendințe în încălțăminte.</p>
     </header>
 
-    <!-- Bara de navigare -->
+   
     <nav>
         <div class="menu-toggle">
-            <i class="fas fa-bars"></i> <!-- Iconița meniului hamburger -->
+            <i class="fas fa-bars"></i> 
         </div>
         <div class="nav-right">
             <a href="cosul-meu.html" class="nav-icon">
                 <i class="fas fa-shopping-bag"></i>
-                <span class="badge">0</span> <!-- Badge pentru numărul de produse -->
+                <span class="badge">0</span> 
             </a>
         </div>
         <ul class="nav-links">
@@ -33,7 +33,7 @@
     </nav>
 
     <div class="container">
-        <!-- Lista de categorii -->
+        
         <div class="category-list">
             <div class="category-card" onclick="afiseazaProduse('sport')">
                 <h2>Încălțăminte Sport</h2>
@@ -49,12 +49,11 @@
             </div>
         </div>
 
-        <!-- Produsele din categorie -->
+        
         <div id="sport" class="product-grid">
             <div class="product">
                 <img src="imagini/bute.jpg" alt="Buțe">
                 <h3>Buțe</h3>
-                <p class="old-price">1.800,00 MDL</p>
                 <p class="price">1.600,00 MDL</p>
                 <select id="marime-bute">
                     <option value="36">Mărime 36</option>
@@ -90,15 +89,14 @@
                 <input type="number" id="cantitate-adidasi-sport" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Bampuri', 800, 'marime-adidasi-sport', 'cantitate-adidasi-sport')">Adaugă în Coș</button>
             </div>
-            <!-- Alte produse sport ... -->
+            
         </div>
 
-        <!-- Categoria Casual -->
+       
         <div id="casual" class="product-grid">
             <div class="product">
                 <img src="imagini/0001262_ghete-barbati-piele-naturala-900-blue_465.jpeg" alt="Bocani">
                 <h3>Bocani</h3>
-                <p class="old-price">1.800,00 MDL</p>
                 <p class="price">1.600,00 MDL</p>
                 <select id="marime-bocani">
                     <option value="36">Mărime 36</option>
@@ -134,15 +132,14 @@
                 <input type="number" id="cantitate-pantofi-casual" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Ghete', 700, 'marime-pantofi-casual', 'cantitate-pantofi-casual')">Adaugă în Coș</button>
             </div>
-            <!-- Alte produse casual ... -->
+           
         </div>
 
-        <!-- Categoria Elegantă -->
+        
         <div id="eleganta" class="product-grid">
             <div class="product">
                 <img src="imagini/27-600x800.webp" alt="Pantofi">
                 <h3>Pantofi</h3>
-                <p class="old-price">1.400,00 MDL</p>
                 <p class="price">1.200,00 MDL</p>
                 <select id="marime-pantofi-eleganti">
                     <option value="36">Mărime 36</option>
@@ -161,7 +158,7 @@
             </div>
         </div>
 
-        <!-- Categoria Sandale -->
+        
         <div id="sandale" class="product-grid">
             <div class="product">
                 <img src="imagini/SANDALEBARBATIMELS95017NEGRE_D.webp" alt="Sandale">
@@ -182,6 +179,44 @@
                 <input type="number" id="cantitate-sandale" min="1" value="1" placeholder="Cantitate">
                 <button onclick="adaugaInCos('Sandale', 600, 'marime-sandale', 'cantitate-sandale')">Adaugă în Coș</button>
             </div>
+            <div class="product">
+                <img src="imagini/san.jpg" alt="Pantofi">
+                <h3>Sandale Puma Softride</h3>
+                <p class="price">800,00 MDL</p>
+                <select id="marime-pantofi-eleganti">
+                    <option value="36">Mărime 36</option>
+                    <option value="37">Mărime 37</option>
+                    <option value="38">Mărime 38</option>
+                    <option value="39">Mărime 39</option>
+                    <option value="40">Mărime 40</option>
+                    <option value="41">Mărime 41</option>
+                    <option value="42">Mărime 42</option>
+                    <option value="43">Mărime 43</option>
+                    <option value="44">Mărime 44</option>
+                    <option value="45">Mărime 45</option>
+                </select>
+                <input type="number" id="cantitate-pantofi-eleganti" min="1" value="1" placeholder="Cantitate">
+                <button onclick="adaugaInCos('Pantofi', 800, 'marime-pantofi-eleganti', 'cantitate-pantofi-eleganti')">Adaugă în Coș</button>
+            </div>
+            <div class="product">
+                <img src="imagini/sandaleee.jpg" alt="Pantofi">
+                <h3>Sandale Puma Shibui Mule</h3>
+                <p class="price">700,00 MDL</p>
+                <select id="marime-pantofi-eleganti">
+                    <option value="36">Mărime 36</option>
+                    <option value="37">Mărime 37</option>
+                    <option value="38">Mărime 38</option>
+                    <option value="39">Mărime 39</option>
+                    <option value="40">Mărime 40</option>
+                    <option value="41">Mărime 41</option>
+                    <option value="42">Mărime 42</option>
+                    <option value="43">Mărime 43</option>
+                    <option value="44">Mărime 44</option>
+                    <option value="45">Mărime 45</option>
+                </select>
+                <input type="number" id="cantitate-pantofi-eleganti" min="1" value="1" placeholder="Cantitate">
+                <button onclick="adaugaInCos('Pantofi', 700, 'marime-pantofi-eleganti', 'cantitate-pantofi-eleganti')">Adaugă în Coș</button>
+            </div>
         </div>
     </div>
 
@@ -189,6 +224,6 @@
         <p>© 2025 Magazin de Haine Online. Toate drepturile rezervate.</p>
     </footer>
 
-    <script src="foldere cu js/incaltaminte.js"></script>
+    <script src="folder-cu-js/incaltaminte.js"></script>
 </body>
 </html>
