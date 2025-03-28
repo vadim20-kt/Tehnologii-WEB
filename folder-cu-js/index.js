@@ -46,7 +46,7 @@ function adaugaInCos(nume, pret, marimeId, cantitateId) {
 // Funcție pentru actualizarea numărului de produse din coș
 function actualizeazaNumarProduseCos() {
     let cos = JSON.parse(localStorage.getItem('cos')) || [];
-    let numarProduse = cos.length; 
+    let numarProduse = cos.length;
     const badge = document.querySelector('.nav-icon .badge');
     if (badge) {
         badge.textContent = numarProduse;
@@ -59,6 +59,7 @@ function reseteazaCos() {
     actualizeazaNumarProduseCos();
     alert("Coșul a fost resetat.");
 }
+
 
 // La încărcarea paginii
 document.addEventListener('DOMContentLoaded', () => {

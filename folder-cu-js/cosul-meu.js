@@ -26,7 +26,7 @@ function incarcaCos() {
     });
 
     // Actualizează totalul
-    cartTotal.textContent = total.toFixed(2); 
+    cartTotal.textContent = total.toFixed(2);
 
     // Actualizează numărul de produse din coș (badge)
     const badge = document.querySelector('.nav-icon .badge');
@@ -38,9 +38,9 @@ function incarcaCos() {
 // Funcție pentru ștergerea unui produs din coș
 function stergeDinCos(index) {
     const cos = JSON.parse(localStorage.getItem('cos')) || [];
-    cos.splice(index, 1); 
-    localStorage.setItem('cos', JSON.stringify(cos)); 
-    incarcaCos(); 
+    cos.splice(index, 1);
+    localStorage.setItem('cos', JSON.stringify(cos));
+    incarcaCos();
 }
 
 // Funcție pentru finalizarea comenzii
@@ -50,8 +50,8 @@ function finalizeazaComanda() {
         alert('Coșul tău este gol!');
     } else {
         alert('Comanda a fost finalizată cu succes!');
-        localStorage.removeItem('cos'); 
-        incarcaCos(); 
+        localStorage.removeItem('cos');
+        incarcaCos();
     }
 }
 

@@ -1,12 +1,12 @@
 // Funcție pentru actualizarea badge-ului coșului
 function actualizeazaBadgeCos() {
     const cos = JSON.parse(localStorage.getItem('cos')) || [];
-    const badge = document.querySelector('.nav-icon .badge'); 
+    const badge = document.querySelector('.nav-icon .badge');
 
     if (badge) {
-        badge.textContent = cos.length; 
+        badge.textContent = cos.length;
         badge.classList.add('badge-update');
-        setTimeout(() => badge.classList.remove('badge-update'), 500); 
+        setTimeout(() => badge.classList.remove('badge-update'), 500);
     }
 }
 
@@ -63,5 +63,5 @@ const navLinks = document.querySelector('.nav-links');
 
 menuToggle.addEventListener('click', function() {
     navLinks.classList.toggle('active');
-    menuToggle.classList.toggle('rotate-icon'); 
+    menuToggle.classList.toggle('rotate-icon');
 });
