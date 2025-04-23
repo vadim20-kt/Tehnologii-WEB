@@ -1,12 +1,10 @@
 <?php
 session_start();
 
-// Inițializăm coșul dacă nu există deja
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Adăugăm un produs în coș (acest cod poate fi mutat într-un fișier separat pentru gestionarea adăugării de produse)
 if (isset($_POST['add_to_cart'])) {
     $product_id = $_POST['product_id'];
     $product_name = $_POST['product_name'];
@@ -19,7 +17,6 @@ if (isset($_POST['add_to_cart'])) {
     ];
 }
 
-// Calculăm totalul coșului
 $total = 0;
 foreach ($_SESSION['cart'] as $item) {
     $total += $item['price'];

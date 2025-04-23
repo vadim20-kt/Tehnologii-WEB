@@ -1,14 +1,12 @@
-// Funcție pentru încărcarea produselor din coș
+
 function incarcaCos() {
     const cos = JSON.parse(localStorage.getItem('cos')) || [];
     const cartItems = document.getElementById('cart-items');
     const cartTotal = document.getElementById('cart-total');
     let total = 0;
 
-    // Golește conținutul anterior
     cartItems.innerHTML = '';
 
-    // Adaugă fiecare produs în coș
     cos.forEach((item, index) => {
         const div = document.createElement('div');
         div.className = 'cart-item';
@@ -25,17 +23,14 @@ function incarcaCos() {
         total += item.pret * item.cantitate;
     });
 
-    // Actualizează totalul
     cartTotal.textContent = total.toFixed(2);
 
-    // Actualizează numărul de produse din coș (badge)
     const badge = document.querySelector('.nav-icon .badge');
     if (badge) {
         badge.textContent = cos.length;
     }
 }
 
-// Funcție pentru ștergerea unui produs din coș
 function stergeDinCos(index) {
     const cos = JSON.parse(localStorage.getItem('cos')) || [];
     cos.splice(index, 1);
@@ -43,7 +38,6 @@ function stergeDinCos(index) {
     incarcaCos();
 }
 
-// Funcție pentru finalizarea comenzii
 function finalizeazaComanda() {
     const cos = JSON.parse(localStorage.getItem('cos')) || [];
     if (cos.length === 0) {
@@ -55,10 +49,8 @@ function finalizeazaComanda() {
     }
 }
 
-// Încarcă coșul la deschiderea paginii
 document.addEventListener('DOMContentLoaded', incarcaCos);
 
-// Funcție pentru meniul hamburger
 document.querySelector('.menu-toggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('active');
 });

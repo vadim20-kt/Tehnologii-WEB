@@ -1,0 +1,64 @@
+{
+  "accesorii": {
+    "centuri": [
+      { "nume": "Curea din Piele", "pret": 300, "imagine": "imagini/curea piele.jpg" },
+      { "nume": "Curea Casual", "pret": 250, "imagine": "imagini/casual.jpg" },
+      { "nume": "Curea Elastică", "pret": 280, "imagine": "imagini/curea elastica.jpg" }
+    ],
+    "ceasuri": [
+      { "nume": "Ceas Clasic", "pret": 20000, "imagine": "imagini/ceas clasic.jpg" },
+      { "nume": "Smartwatch", "pret": 500, "imagine": "imagini/smartwatch.jpg" },
+      { "nume": "Ceas Sport", "pret": 350, "imagine": "imagini/ceas sport.jpg" }
+    ],
+    "ochelari": [
+      { "nume": "Ochelari Thom Richard", "pret": 300, "imagine": "imagini/thom.jpg" },
+      { "nume": "Ochelari Marc Jhon", "pret": 400, "imagine": "imagini/marc.jpg" },
+      { "nume": "Ochelari Matrix", "pret": 350, "imagine": "imagini/matrix.jpg" }
+    ],
+    "geanti": [
+      { "nume": "Geantă de Umar", "pret": 400, "imagine": "imagini/umar.webp" },
+      { "nume": "Geanta Smart Business", "pret": 450, "imagine": "imagini/smart bissnes.jpg" },
+      { "nume": "Geantă Sport", "pret": 380, "imagine": "imagini/beanta sport.jpg" }
+    ]
+  },
+  "haine": {
+    "tricouri": [
+      { "nume": "Tricou Alb", "pret": 300, "imagine": "imagini/Categorie Tricou Alb Barbat-771x1000.png" },
+      { "nume": "Tricou Negru", "pret": 350, "imagine": "imagini/800x800_VBTSBAGEP42A15999-01.jpg" },
+      { "nume": "Tricou Roșu", "pret": 320, "imagine": "imagini/Без названия.jpg" }
+    ],
+    "blugi": [
+      { "nume": "Blugi Albaștri", "pret": 400, "imagine": "imagini/1690-blugi-barbati-online-soul-republic-c_lqno-vr.jpg" },
+      { "nume": "Blugi Negri", "pret": 450, "imagine": "imagini/res_b9eb54c49f1a57f0a113a80f40d38bf5.jpg" },
+      { "nume": "Blugi Gri", "pret": 420, "imagine": "imagini/rum_pl_Blugi-gri-slim-fit-Bolf-KX759-C-89448_6.jpg" }
+    ],
+    "geci-jachete": [
+      { "nume": "Geacă de Primăvară", "pret": 800, "imagine": "imagini/111111111111zsw5.jpg" },
+      { "nume": "Jachetă Vânt", "pret": 700, "imagine": "imagini/e71214ae-bcc3-4d8c-963c-9870c57df15b.jpg" },
+      { "nume": "Geacă de Iarnă", "pret": 900, "imagine": "imagini/994820alaska-man-navy.webp" }
+    ],
+    "paltoane": [
+      { "nume": "Palton Negru", "pret": 1200, "imagine": "imagini/Без названия (1).jpg" },
+      { "nume": "Palton Bej", "pret": 1300, "imagine": "imagini/17-300x400.png" },
+      { "nume": "Palton Gri", "pret": 1250, "imagine": "imagini/Дизайн-без-названия-1-300x400.jpg" }
+    ]
+  },
+  "incaltaminte": {
+    "sport": [
+      { "nume": "Buțe", "pret": 1600, "imagine": "imagini/bute.jpg" },
+      { "nume": "Bampuri", "pret": 800, "imagine": "imagini/bampuri.jpg" }
+    ],
+    "casual": [
+      { "nume": "Bocani", "pret": 1600, "imagine": "imagini/0001262_ghete-barbati-piele-naturala-900-blue_465.jpeg" },
+      { "nume": "Ghete", "pret": 700, "imagine": "imagini/ghete.jpg" }
+    ],
+    "eleganta": [
+      { "nume": "Pantofi", "pret": 1200, "imagine": "imagini/27-600x800.webp" }
+    ],
+    "sandale": [
+      { "nume": "Sandale", "pret": 600, "imagine": "imagini/SANDALEBARBATIMELS95017NEGRE_D.webp" },
+      { "nume": "Sandale Puma Softride", "pret": 800, "imagine": "imagini/san.jpg" },
+      { "nume": "Sandale Puma Shibui Mule", "pret": 700, "imagine": "imagini/sandaleee.jpg" }
+    ]
+  }
+}

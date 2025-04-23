@@ -1,65 +1,89 @@
 <?php
-session_start();
+global $pdo;
+require 'config.php';
+
+$error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
+    $email = sanitizeInput($_POST['email']);
+    $password = sanitizeInput($_POST['password']);
 
-    if ($email === "test@example.com" && $password === "password123") {
-        $_SESSION['logged_in'] = true;
-        $_SESSION['email'] = $email;
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        $error_message = "Email sau parolă incorectă";
+    try {
+        $stmt = $pdo->prepare("SELECT id, password FROM users WHERE email = ?");
+        $stmt->execute([$email]);
+        $user = $stmt->fetch();
+
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['logged_in'] = true;
+            header("Location: index.php");
+            exit();
+        } else {
+            $error = "Email sau parolă incorectă!";
+        }
+    } catch (PDOException $e) {
+        $error = "Eroare la autentificare!";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autentificare | Moda pentru Bărbați</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Autentificare - Fashion Men</title>
     <link rel="stylesheet" href="folder_cu%20_css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<div class="login-container">
-    <div class="login-header">
-        <h1>Bine ai venit!</h1>
-        <p>Păstrează-ți datele în siguranță!</p>
-    </div>
 
-    <?php if (isset($error_message)): ?>
-        <div class="error-message">
-            <i class="fas fa-exclamation-circle"></i>
-            <span><?php echo $error_message; ?></span>
-        </div>
+<img src="imagini/fundal.jpg" alt="Fundal fashion" class="background-image">
+
+<div class="auth-container">
+    <h1>Autentificare</h1>
+    <p class="subtitle">Accesează-ți contul pentru a descoperi stilul tău!</p>
+
+    <?php if (isset($_GET['registration']) && $_GET['registration'] === 'success'): ?>
+        <div class="alert success">Înregistrare reușită! Te poți autentifica.</div>
     <?php endif; ?>
 
-    <form class="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-        <div class="input-group">
-            <label for="email">Email</label>
-            <div class="input-field">
-                <input type="email" id="email" name="email" required placeholder="Introdu adresa de email">
-            </div>
+    <?php if ($error): ?>
+        <div class="alert error"><?= $error ?></div>
+    <?php endif; ?>
+
+    <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" name="email" required value="<?= isset($_SESSION['registration_email']) ? $_SESSION['registration_email'] : '' ?>">
+            <?php unset($_SESSION['registration_email']); ?>
         </div>
 
-        <div class="input-group">
-            <label for="password">Parolă</label>
-            <div class="input-field">
-                <input type="password" id="password" name="password" required placeholder="Introdu parola">
-                <a href="forgot-password.php" class="forgot-password">Ai uitat parola?</a>
+        <div class="form-group">
+            <label>Parolă:</label>
+
+
+            <div class="password-wrapper">
+                <input type="password" name="password" id="password" required
+                       autocomplete="new-password"
+                       readonly
+                       onfocus="this.removeAttribute('readonly')"
+                       style="background-image: none !important;">
+                <button type="button" class="toggle-password" aria-label="Arată parola">
+                    <i class="fas fa-eye"></i>
+                    <i class="fas fa-eye-slash" style="display:none;"></i>
+                </button>
             </div>
+
+
+            <a href="forgot-password.php" class="forgot-password">Ai uitat parola?</a>
         </div>
 
-        <button type="submit" class="login-button">Autentificare</button>
+        <button type="submit" class="btn">Autentifică-te</button>
     </form>
 
-    <div class="login-footer">
-        <p>Nu ai un cont? <a href="registrare.php">Înregistrează-te</a></p>
+    <div class="auth-footer">
+        Nu ai cont? <a href="register.php">Înregistrează-te</a>
     </div>
 </div>
 <script src="folder-cu-js/login.js"></script>

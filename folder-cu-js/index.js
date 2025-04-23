@@ -1,16 +1,22 @@
-// Funcție pentru meniul hamburger
-document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('active');
-});
+ {
+    const cos = JSON.parse(localStorage.getItem('cos')) || [];
+    const totalProduse = cos.reduce((total, produs) => total + produs.cantitate, 0);
 
-// Funcție pentru adăugarea în coș
+    // Actualizăm toate badge-urile din pagină
+    document.querySelectorAll('.badge-cos').forEach(badge => {
+        badge.textContent = totalProduse;
+        badge.style.display = totalProduse > 0 ? 'inline-block' : 'none';
+    });
+}
+
 function adaugaInCos(nume, pret, marimeId, cantitateId) {
     const marimeElement = document.getElementById(marimeId);
     const cantitateElement = document.getElementById(cantitateId);
 
+    // Validări
     if (!marimeElement || !cantitateElement) {
         alert("Eroare: Elementele nu au fost găsite.");
-        return;
+        return false;
     }
 
     const marime = marimeElement.value;
@@ -18,50 +24,86 @@ function adaugaInCos(nume, pret, marimeId, cantitateId) {
 
     if (isNaN(cantitate) || cantitate < 1) {
         alert("Cantitatea trebuie să fie un număr valid și mai mare decât 0.");
-        return;
+        return false;
     }
 
     const pretNumar = parseFloat(pret);
     if (isNaN(pretNumar)) {
         alert("Prețul nu este valid.");
-        return;
+        return false;
     }
 
     const produs = {
         nume: nume,
         pret: pretNumar,
         marime: marime,
-        cantitate: cantitate
+        cantitate: cantitate,
+        dataAdaugare: new Date().toISOString()
     };
 
     let cos = JSON.parse(localStorage.getItem('cos')) || [];
-    cos.push(produs);
+    const produsExistent = cos.find(p => p.nume === nume && p.marime === marime);
+
+    if (produsExistent) {
+        produsExistent.cantitate += cantitate;
+    } else {
+        cos.push(produs);
+    }
+
     localStorage.setItem('cos', JSON.stringify(cos));
-
-    alert(`Produsul "${nume}" (Mărime: ${marime}, Cantitate: ${cantitate}) a fost adăugat în coș pentru ${(produs.pret * produs.cantitate).toFixed(2)} MDL.`);
-
     actualizeazaNumarProduseCos();
+
+    return true;
 }
 
-// Funcție pentru actualizarea numărului de produse din coș
-function actualizeazaNumarProduseCos() {
-    let cos = JSON.parse(localStorage.getItem('cos')) || [];
-    let numarProduse = cos.length;
-    const badge = document.querySelector('.nav-icon .badge');
-    if (badge) {
-        badge.textContent = numarProduse;
+function initMenuHamburger() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('open');
+        });
     }
 }
 
-// Funcție pentru resetarea coșului
-function reseteazaCos() {
-    localStorage.removeItem('cos');
-    actualizeazaNumarProduseCos();
-    alert("Coșul a fost resetat.");
+function initUserDropdown() {
+    const userDropdown = document.querySelector('.user-dropdown');
+
+    if (userDropdown) {
+        const userBtn = userDropdown.querySelector('.user-btn');
+        const dropdownContent = userDropdown.querySelector('.dropdown-content');
+
+        userBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownContent.classList.toggle('show');
+        });
+
+        document.addEventListener('click', () => {
+            dropdownContent.classList.remove('show');
+        });
+    }
 }
 
+function initLogout() {
+    const logoutBtn = document.getElementById('logout-btn');
 
-// La încărcarea paginii
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = this.href;
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    initMenuHamburger();
+    initUserDropdown();
+    initLogout();
     actualizeazaNumarProduseCos();
+
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+    }, 100);
 });

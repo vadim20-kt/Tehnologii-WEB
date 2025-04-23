@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     background-color: #fafafa;
     color: #1a1a1a;
     line-height: 1.7;
@@ -80,7 +80,7 @@ nav {
 }
 
 .nav-links li {
-    margin: 0 25px;
+    margin: 0 25px
 }
 
 .nav-links a {
@@ -410,210 +410,440 @@ nav > a.user-btn {
 }
 
 
-.category-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 40px;
-    padding: 0 10px;
+.container.account-page {
+    max-width: 1200px;
+    padding: 2rem 1rem;
 }
 
-.category-card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 20px;
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+.account-page h2 {
+    font-size: 2rem;
+    color: #1a1a1a;
+    margin-bottom: 2.5rem;
     text-align: center;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, border 0.3s ease;
     position: relative;
-    overflow: hidden;
+    padding-bottom: 1rem;
+    font-weight: 600;
 }
 
-.category-card::before {
+.account-page h2:after {
     content: '';
     position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #d4a017;
+}
+
+.account-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.account-info,
+.address-info,
+.preferences {
+    background: #f5f5f5;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.account-info:hover,
+.address-info:hover,
+.preferences:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.account-info h3,
+.address-info h3,
+.preferences h3 {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 500;
+}
+
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #d4a017;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.2);
+}
+
+
+.save-btn {
+    background: linear-gradient(135deg, #d4a017, #b8860b);
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.save-btn:hover {
+    background: linear-gradient(135deg, #e6b800, #d4a017);
+    transform: translateY(-2px);
+}
+
+.add-btn {
+    background: linear-gradient(135deg, #d4a017, #b8860b);
+    color: #fff;
+    border: none;
+    padding: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #e6b800, #d4a017);
+}
+
+.edit-btn,
+.set-default-btn,
+.delete-btn {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit-btn {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.set-default-btn {
+    background: #d4a017;
+    color: #fff;
+}
+
+.delete-btn {
+    background: #c94b4b;
+    color: #fff;
+}
+
+
+.addresses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.address-card {
+    padding: 1.25rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+    background: #f5f5f5;
+}
+
+.address-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.address-card.default-address {
+    border: 2px solid #d4a017;
+    background: rgba(212, 160, 23, 0.05);
+}
+
+.address-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.default-badge {
+    background: #d4a017;
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.address-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+
+.password-change {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.password-change h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+}
+
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.25rem;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding: 0.8rem;
+    padding-right: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #fff;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.password-wrapper input:focus {
+    border-color: #d4a017;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.2);
+}
+
+
+.password-field {
+    font-family: 'Arial', sans-serif;
+}
+
+
+.password-field.hidden {
+    -webkit-text-security: disc;
+    -moz-text-security: disc;
+    text-security: disc;
+}
+
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    font-size: 1rem;
+    z-index: 10;
+}
+
+.password-toggle:hover {
+    color: #000;
+}
+
+.password-toggle i {
+    transition: color 0.3s ease;
+}
+
+
+.password-field::-ms-reveal,
+.password-field::-ms-clear,
+.password-field::-webkit-textfield-decoration-container {
+    display: none !important;
+}
+
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+.pref-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    margin-right: 0.75rem;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #d4a017;
+}
+
+.checkbox-container .checkmark {
+    display: none;
+}
+
+
+#addressModal {
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background-color: #d4a017;
-    z-index: 1;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
 }
 
-.category-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    background-color: #f5f5f5;
-}
 
-.category-card.active {
-    border: 2px solid #d4a017;
-}
-
-.category-card h2 {
-    font-size: 1.5rem;
-    margin: 0;
-    color: #1a1a1a;
+.modal-content {
+    background: #f5f5f5;
+    margin: 5% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     position: relative;
-    z-index: 2;
-    transition: color 0.4s ease;
-}
-
-.category-card:hover h2 {
-    color: #d4a017;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
 }
 
 
-#search-results {
-    margin-top: 20px;
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.search-main-category {
-    margin-bottom: 40px;
+.close-btn:hover {
+    color: #333;
 }
 
-.search-main-category h2 {
-    font-size: 2rem;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    text-align: center;
-    border-bottom: 2px solid #d4a017;
-    padding-bottom: 10px;
-}
-
-.search-category {
-    margin-bottom: 30px;
-}
-
-.search-category h3 {
-    font-size: 1.6rem;
-    color: #1a1a1a;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 40px;
-    justify-content: center;
-}
-
-.product {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    width: calc(25% - 30px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 1 1 calc(25% - 30px);
+#addressForm {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 420px;
-    max-width: 320px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    gap: 1.2rem;
 }
 
-.product:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+#addressForm .form-group {
+    margin-bottom: 0;
 }
 
-.product:active {
-    transform: scale(0.95);
-}
-
-.product img {
-    max-width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-
-.product h3 {
-    font-size: 1.4rem;
-    margin: 15px 0 10px;
-    color: #1a1a1a;
-    flex-grow: 0;
-}
-
-.product .price {
-    font-size: 1.2rem;
-    color: #d4a017;
-    margin: 10px 0;
-    font-weight: 600;
-    flex-grow: 0;
-}
-
-.product select,
-.product input {
-    width: 70%;
-    padding: 12px;
-    margin: 10px auto;
-    border: 2px solid #d4a017;
-    border-radius: 4px;
-    font-size: 1rem;
-    text-align: center;
-    flex-grow: 0;
-    transition: border-color 0.4s ease, background-color 0.4s ease;
-}
-
-.product select:focus,
-.product input:focus {
-    border-color: #b8860b;
-    background-color: #fffaf0;
-}
-
-.product button {
-    background: linear-gradient(135deg, #d4a017, #b8860b);
-    color: #1a1a1a;
-    border: none;
-    padding: 12px 25px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: auto;
-    width: 100%;
-    text-transform: uppercase;
-    transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease;
-}
-
-.product button:hover {
-    background: linear-gradient(135deg, #e6b800, #d4a017);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.product button.zoom-effect {
-    animation: zoom 0.3s ease;
-}
-
-@keyframes zoom {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-
-.no-results-message {
-    text-align: center;
-    color: #d4a017;
-    font-size: 1.2rem;
-    margin-top: 20px;
+#addressForm label {
+    display: block;
+    margin-bottom: 0.5rem;
     font-weight: 500;
+    color: #333;
+}
+
+#addressForm input,
+#addressForm select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 1rem;
+    background: #fff;
+    color: #333;
+}
+
+#addressForm input:focus,
+#addressForm select:focus {
+    border-color: #d4a017;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.2);
+}
+
+
+#addressForm .save-btn {
+    margin-top: 1rem;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #d4a017, #b8860b);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+#addressForm .save-btn:hover {
+    background: linear-gradient(135deg, #e6b800, #d4a017);
+}
+
+
+.error-message {
+    color: #c94b4b;
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+    display: none;
 }
 
 
@@ -645,6 +875,16 @@ footer p {
 
 
 @media (max-width: 768px) {
+    .account-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        max-width: 95%;
+        padding: 1.5rem;
+    }
+
     .menu-toggle {
         display: block;
         order: 1;
@@ -692,51 +932,30 @@ footer p {
         margin-left: auto;
         order: 3;
     }
-
-    .search-content {
-        min-width: 200px;
-    }
-
-    .search-content.active {
-        width: 80%;
-        max-width: 400px;
-    }
-
-    .search-main-category h2 {
-        font-size: 1.8rem;
-    }
-
-    .search-category h3 {
-        font-size: 1.4rem;
-    }
-
-    header {
-        padding: 15px 20px;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 0.85rem;
-    }
-
-    .category-card {
-        width: 150px;
-        height: 150px;
-    }
-
-    .category-card h2 {
-        font-size: 1.3rem;
-    }
-
-    .product {
-        width: calc(50% - 20px);
-    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+    .account-page h2 {
+        font-size: 1.7rem;
+    }
+
+    .account-info,
+    .address-info,
+    .preferences {
+        padding: 1.5rem;
+    }
+
+    .address-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .edit-btn,
+    .set-default-btn,
+    .delete-btn {
+        width: 100%;
+    }
+
     header h1 {
         font-size: 1.6rem;
     }
@@ -757,55 +976,5 @@ footer p {
 
     .product {
         width: 100%;
-    }
-
-    .product h3 {
-        font-size: 1.3rem;
-    }
-
-    .product .price {
-        font-size: 1.1rem;
-    }
-
-    .product select,
-    .product input {
-        width: 80%;
-        font-size: 0.9rem;
-    }
-
-    .product button {
-        font-size: 0.9rem;
-        padding: 10px 20px;
-    }
-
-    .search-container {
-        margin-left: 3px;
-    }
-
-    .search-btn {
-        font-size: 1rem;
-        padding: 6px;
-    }
-
-    .search-content {
-        min-width: 180px;
-    }
-
-    .search-content.active {
-        width: 90%;
-        max-width: 300px;
-    }
-
-    .search-content input {
-        font-size: 0.85rem;
-        padding: 8px;
-    }
-
-    .search-main-category h2 {
-        font-size: 1.6rem;
-    }
-
-    .search-category h3 {
-        font-size: 1.2rem;
     }
 }

@@ -1,25 +1,60 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Toggle password visibility (dacă adaugi un buton pentru asta)
+
     const togglePassword = document.querySelector('.toggle-password');
     if (togglePassword) {
-        togglePassword.addEventListener('click', function() {
-            const passwordField = document.getElementById('password');
-            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordField.setAttribute('type', type);
-            this.classList.toggle('fa-eye-slash');
+        togglePassword.addEventListener('click', function(e) {
+            e.preventDefault();
+            const passwordInput = document.getElementById('password');
+            if (!passwordInput) return;
+
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+
+            const icons = {
+                eye: this.querySelector('.fa-eye'),
+                eyeSlash: this.querySelector('.fa-eye-slash')
+            };
+
+            if (icons.eye && icons.eyeSlash) {
+                icons.eye.style.display = isPassword ? 'none' : 'inline-block';
+                icons.eyeSlash.style.display = isPassword ? 'inline-block' : 'none';
+            }
+
+            passwordInput.focus();
         });
     }
 
-    // Validare formular
-    const loginForm = document.querySelector('.login-form');
+    const loginForm = document.querySelector('form');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            const email = document.querySelector('input[name="email"]');
+            const password = document.getElementById('password');
 
-            if (!email || !password) {
+            if (!email?.value.trim() || !password?.value.trim()) {
                 e.preventDefault();
-                alert('Te rugăm să completezi toate câmpurile!');
+
+                const errorMsg = document.querySelector('.error-message') || document.createElement('div');
+                errorMsg.className = 'error-message';
+                errorMsg.textContent = 'Te rugăm să completezi toate câmpurile!';
+                errorMsg.style.color = '#feb2b2';
+                errorMsg.style.marginTop = '10px';
+                errorMsg.style.textAlign = 'center';
+
+                if (!document.querySelector('.error-message')) {
+                    loginForm.appendChild(errorMsg);
+                }
+
+                (!email.value.trim() ? email : password).focus();
+            }
+        });
+    }
+
+    const passwordField = document.getElementById('password');
+    if (passwordField) {
+        passwordField.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.querySelector('.btn').click();
             }
         });
     }
